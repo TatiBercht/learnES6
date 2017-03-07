@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "@jamesallardice/eslint-config-base"
+  ],
+  "globals": {
+    "describe" : false,
+    "context" : false,
+    "it": false,
+    "expect": false,
+    "before" : false,
+    "beforeEach" : false,
+    "after" : false,
+    "afterEach" : false
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "func-names": 0,
+    "no-invalid-this": 0
+  }
+}
