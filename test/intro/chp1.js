@@ -1,8 +1,10 @@
+/* eslint no-unused-vars: 0 */
+
 describe('intro', () => {
   describe('statements', () => {
-    let a = 20;
-    let b = 2;
-    let c = a * b;
+    const a = 20;
+    const b = 2;
+    const c = a * b;
 
     it('should calculate c to 40', () => {
       expect(c).to.equal(40);
@@ -12,8 +14,8 @@ describe('intro', () => {
   describe('unary operators', () => {
     describe('++', () => {
       let x = 5;
-      let y = x++;
-      let z = ++x;
+      const y = x++;
+      const z = ++x;
 
       it('x = 7', () => {
         expect(x).to.equal(7);
@@ -30,8 +32,8 @@ describe('intro', () => {
 
     describe('--', () => {
       let x = 5;
-      let y = x--;
-      let z = --x;
+      const y = x--;
+      const z = --x;
 
       it('x = 3', () => {
         expect(x).to.equal(3);
@@ -46,37 +48,54 @@ describe('intro', () => {
       });
     });
   });
+
+  describe('function parameters', () => {
+    function foo(x = 11, y = 31) {
+      return x + y;
+    }
+
+    it('foo() == ?', () => {
+      // expect(foo()).to.equal(?);
+    });
+
+    it('foo(5, 6) == ?', () => {
+      // expect(foo(5, 6)).to.equal(?);
+    });
+
+    it('foo(0, 42) == ?', () => {
+      // expect(foo(0, 42)).to.equal(?);
+    });
+
+    it('foo(5) == ?', () => {
+      // expect(foo(5)).to.equal(?);
+    });
+
+    it('foo(5, undefined) == ?', () => {
+      // expect(foo(5, undefined)).to.equal(?);
+    });
+
+    it('foo(5, null) == ?', () => {
+      // expect(foo(5, null)).to.equal(?);
+    });
+
+    it('foo(null, 5) == ?', () => {
+      // expect(foo(null, 5)).to.equal(?);
+    });
+
+    it('foo(undefined, 5) == ?', () => {
+      // expect(foo(undefined, 5)).to.equal(?);
+    });
+  });
+
+  describe('immediately executed functions', () => {
+    function foo(x = (function (v) { // eslint-disable-line wrap-iife
+      return v + 11;
+    })(31)) {
+      return x * 2;
+    }
+
+    it('foo() == ?', () => {
+      // expect(foo()).to.equal(?);
+    });
+  });
 });
-
-/*
-
- function foo(x = 11, y = 31) {
- console.log( x + y );
- }
-
- foo();					// 42
- foo( 5, 6 );			// 11
- foo( 0, 42 );			// 42
-
- foo( 5 );				// 36
- foo( 5, undefined );	// 36 <-- `undefined` is missing
- foo( 5, null );			// 5  <-- null coerces to `0`
-
- foo( undefined, 6 );	// 17 <-- `undefined` is missing
- foo( null, 6 );			// 6  <-- null coerces to `0`
-
-
-
-
-
-
-
- function foo( x =
- (function(v){ return v + 11; })( 31 )
- ) {
- console.log( x );
- }
-
- foo();			// 42
-
- */
