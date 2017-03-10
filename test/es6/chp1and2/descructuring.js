@@ -1,52 +1,61 @@
-// function foo() {
-//   return [1,2,3];
-// }
-//
-// Destructuring 1
-//
-// var o1 = { a: 1, b: 2, c: 3 },
-//   a2 = [];
-//
-// ( { a: a2[0], b: a2[1], c: a2[2] } = o1 );
-//
-// console.log( a2 );					// [1,2,3]
-//
-//
-// Destructuring 2
-//
-// var aa = 10, bb = 20;
-//
-// var o = { x: aa, y: bb };
-// var     { x: AA, y: BB } = o;
-//
-// console.log( AA, BB );				// 10 20
-//
-//
-// Destructuring 3
-//
-// var a, b, c, x, y, z;
-//
-// [a,b,c] = foo();
-// ( { x, y, z } = bar() );
-//
-// console.log( a, b, c );				// 1 2 3
-// console.log( x, y, z );				// 4 5 6
-//
-// Destructuring 4
-//
-// var a1 = [ 1, 2, 3 ],
-//   a2 = [];
-//
-// [ a2[2], a2[0], a2[1] ] = a1;
-//
-// console.log( a2 );					// [2,3,1]
-//
-//
-// You can even solve the traditional "swap two variables" task without a temporary variable:
-//
-//   ```js
-// var x = 10, y = 20;
-//
-// [ y, x ] = [ x, y ];
-//
-// console.log( x, y );				// 20 10
+function foo() {
+  return [1, 2, 3];
+}
+
+describe('destructuring', () => {
+  describe('destructuring 1', () => {
+    const o1 = { a: 1, b: 2, c: 3 };
+    const a2 = [];
+
+    ({ a: a2[0], b: a2[1], c: a2[2] } = o1);
+
+    it('works', () => {
+      expect(a2).to.deep.equal([1, 2, 3]);
+    });
+  });
+
+  describe('destructuring 2', () => {
+    const aa = 10;
+    const bb = 20;
+    const o = { x: aa, y: bb };
+    const { x: AA, y: BB } = o;
+
+    it('works', () => {
+      expect(AA).to.equal(10);
+      expect(BB).to.equal(20);
+    });
+  });
+
+  describe('destructuring 3', () => {
+    const [a, b, c] = foo();
+
+    it('works', () => {
+      expect(a).to.equal(1);
+      expect(b).to.equal(2);
+      expect(c).to.equal(3);
+    });
+  });
+
+  describe('destructuring 4', () => {
+    const a1 = [1, 2, 3];
+    const a2 = [];
+
+    [a2[2], a2[0], a2[1]] = a1;
+
+    it('works', () => {
+      expect(a2).to.deep.equal([2, 3, 1]);
+    });
+  });
+
+  describe('destructuring 5 - swap 2 variables', () => {
+    let x = 10;
+    let y = 20;
+
+    [y, x] = [x, y];
+
+    it('works', () => {
+      expect(x).to.equal(20);
+      expect(y).to.equal(10);
+    });
+  });
+});
