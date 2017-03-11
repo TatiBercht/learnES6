@@ -58,4 +58,23 @@ describe('destructuring', () => {
       expect(y).to.equal(10);
     });
   });
+
+  describe('destructuring 6', () => {
+    const { a: X, a: Y } = { a: 1 };
+
+    it('works', () => {
+      expect(X).to.equal(1);
+      expect(Y).to.equal(1);
+    });
+  });
+
+  describe('destructuring 7', () => {
+    const { a: { x: X, x: Y }, a } = { a: { x: 1 } };
+
+    it('works', () => {
+      expect(X).to.equal(1);
+      expect(Y).to.equal(1);
+      expect(a).to.deep.equal({ 'x': 1 }); // eslint-disable-line quote-props
+    });
+  });
 });
