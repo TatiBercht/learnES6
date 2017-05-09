@@ -1,4 +1,4 @@
-describe.only('Iterators', () => {
+describe('Iterators', () => {
   const arr = [1, 2, 3];
   const itSymbol = arr[Symbol.iterator]();
 
