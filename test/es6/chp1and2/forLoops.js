@@ -1,13 +1,19 @@
-describe.only('for...of loops', () => {
+describe('for...of loops', () => {
   it('`for..in` loops over the keys/indexes in the `a` array, while `for..of` loops over the values in `a`.', () => {
-    var a = ["a","b","c","d","e"];
+    const a = ['a', 'b', 'c', 'd', 'e'];
 
-    for (var idx in a) {
-      console.log( idx );
+    for (const idx in a) { // eslint-disable-line guard-for-in
+      console.log(idx); // eslint-disable-line no-console
     }
 
-    for (var val of a) {
-      console.log( val );
+    for (const val of a) {
+      console.log(val); // eslint-disable-line no-console
+    }
+  });
+
+  it('example 2', () => {
+    for (const c of 'hello') {
+      console.log(c); // eslint-disable-line no-console
     }
   });
 });
