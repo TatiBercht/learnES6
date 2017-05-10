@@ -23,3 +23,29 @@ describe('Generator eg 2', () => {
     }
   });
 });
+
+describe('Generator eg 3', () => {
+  function* foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+
+  const iterator = foo();
+
+  it('first call to generator', () => {
+    expect(iterator.next()).to.deep.equal({ value: 1, done: false });
+  });
+
+  it('second call to generator', () => {
+    expect(iterator.next()).to.deep.equal({ value: 2, done: false });
+  });
+
+  it('third call to generator', () => {
+    expect(iterator.next()).to.deep.equal({ value: 3, done: false });
+  });
+
+  it('last call to generator', () => {
+    expect(iterator.next()).to.deep.equal({ value: undefined, done: true });
+  });
+});
