@@ -8,3 +8,9 @@ export class Foo {
     return this.x * this.y;
   }
 }
+
+export class Baa extends Foo {
+  gimmeXY() {
+    return super.gimmeXY() -1;
+  }
+}
