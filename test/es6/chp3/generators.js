@@ -50,7 +50,7 @@ describe('Generator eg 3', () => {
   });
 });
 
-describe('Generator eg 4 - .return forces exhaution of a generator', () => {
+describe('Generator eg 4 - .return forces exhaustion of a generator', () => {
   function* foo() {
     yield 1;
     yield 2;
