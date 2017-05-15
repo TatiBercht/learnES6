@@ -1,4 +1,4 @@
-import { Foo, Baa, Oops } from './class-examples';
+import { Foo, Baa, Oops, Foo2, Bar2 } from './class-examples';
 
 describe('simple classes', () => {
   const f = new Foo(5, 15);
@@ -24,5 +24,14 @@ describe.skip('class extending', () => {
 
   it('custom error class', () => {
     expect(throwIt()).to.throw('I messed up!');
+  });
+});
+
+describe('class meta property', () => {
+  const a = new Foo2(); // eslint-disable-line no-unused-vars
+  const b = new Bar2();
+
+  it('new.target is undefined', () => {
+    expect(b.baz()).to.equal(undefined);
   });
 });

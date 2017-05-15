@@ -26,3 +26,20 @@ export class Oops extends Error {
     this.oops = reason;
   }
 }
+
+export class Foo2 {
+  constructor() {
+    console.log('Foo: ', new.target.name); // eslint-disable-line no-console
+  }
+}
+
+export class Bar2 extends Foo {
+  constructor() {
+    super();
+    console.log('Bar: ', new.target.name); // eslint-disable-line no-console
+  }
+
+  baz() {
+    return new.target;
+  }
+}
