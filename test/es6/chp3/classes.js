@@ -9,9 +9,9 @@ describe('simple classes', () => {
 });
 
 describe('class inheritance', () => {
-  const b = new Baa(5, 15);
+  const b = new Baa(5, 15, 3);
 
   it('can instantiate an object from a child class', () => {
-    expect(b.gimmeXY()).to.equal(74);
+    expect(b.gimmeXYZ()).to.equal(225);
   });
 });

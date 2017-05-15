@@ -10,7 +10,12 @@ export class Foo {
 }
 
 export class Baa extends Foo {
-  gimmeXY() {
-    return super.gimmeXY() -1;
+  constructor(a, b, c) {
+    super(a, b);
+    this.z = c;
+  }
+
+  gimmeXYZ() {
+    return super.gimmeXY() * this.z;
   }
 }
