@@ -19,3 +19,10 @@ export class Baa extends Foo {
     return super.gimmeXY() * this.z;
   }
 }
+
+export class Oops extends Error {
+  constructor(reason) {
+    super(reason);
+    this.oops = reason;
+  }
+}
