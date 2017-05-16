@@ -1,4 +1,12 @@
-import { Foo, Baa, Oops, Foo2, Bar2 } from './class-examples';
+import {
+  Foo,
+  Baa,
+  Oops,
+  Foo2,
+  Bar2,
+  FooWithStatic,
+  BarWithStatic,
+} from './class-examples';
 
 describe('simple classes', () => {
   const f = new Foo(5, 15);
@@ -33,5 +41,37 @@ describe('class meta property', () => {
 
   it('new.target is undefined', () => {
     expect(b.baz()).to.equal(undefined);
+  });
+});
+
+describe('classes and statics', () => {
+  const Foo = new FooWithStatic(); // eslint-disable-line no-shadow
+  const Bar = new BarWithStatic();
+
+  it('FooWithStatic.cool()', () => {
+    expect(FooWithStatic.cool()).to.equal('cool');
+  });
+
+
+  it('Foo.wow()', () => {
+    expect(Foo.wow()).to.equal('wow');
+  });
+
+  it('BarWithStatic.cool()', () => {
+    expect(BarWithStatic.cool()).to.equal('cool');
+  });
+
+
+  it('Bar.wow()', () => {
+    expect(Bar.wow()).to.equal('wow');
+  });
+
+  it('BarWithStatic.awesome()', () => {
+    expect(BarWithStatic.awesome()).to.equal('super, awesome cool');
+  });
+
+
+  it('Bar.neat()', () => {
+    expect(Bar.neat()).to.equal('this is neat and also, wow!!!!');
   });
 });

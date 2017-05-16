@@ -43,3 +43,23 @@ export class Bar2 extends Foo {
     return new.target;
   }
 }
+
+export class FooWithStatic {
+  static cool() {
+    return 'cool';
+  }
+
+  wow() {
+    return 'wow';
+  }
+}
+
+export class BarWithStatic extends FooWithStatic {
+  static awesome() {
+    return `super, awesome ${super.cool()}`;
+  }
+
+  neat() {
+    return `this is neat and also, ${super.wow()}!!!!`;
+  }
+}
