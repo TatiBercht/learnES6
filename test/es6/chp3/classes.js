@@ -6,6 +6,7 @@ import {
   Bar2,
   FooWithStatic,
   BarWithStatic,
+  MyCoolArray,
 } from './class-examples';
 
 describe('simple classes', () => {
@@ -73,5 +74,18 @@ describe('classes and statics', () => {
 
   it('Bar.neat()', () => {
     expect(Bar.neat()).to.equal('this is neat and also, wow!!!!');
+  });
+});
+
+describe.skip('class extending', () => {
+  const a = new MyCoolArray(1, 2, 3);
+  const b = a.map((v) => v * 2);
+
+  it('species (instance of)', () => {
+    expect(b).to.be.an.instanceof(MyCoolArray);
+  });
+
+  it('species (instance of)', () => {
+    expect(b).to.not.be.an.instanceof(Array);
   });
 });

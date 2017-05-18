@@ -63,3 +63,16 @@ export class BarWithStatic extends FooWithStatic {
     return `this is neat and also, ${super.wow()}!!!!`;
   }
 }
+
+export class MyCoolArray extends Array {
+  static get [Symbol.species]() {
+    return Array;
+  }
+
+  first() {
+    return this[0];
+  }
+  last() {
+    return this[this.length - 1];
+  }
+}
