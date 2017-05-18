@@ -4,6 +4,7 @@ import {
   Oops,
   Foo2,
   Bar2,
+  Foo3,
   FooWithStatic,
   BarWithStatic,
   MyCoolArray,
@@ -87,5 +88,14 @@ describe.skip('class extending', () => {
 
   it('species (instance of)', () => {
     expect(b).to.not.be.an.instanceof(Array);
+  });
+});
+
+describe.skip('species eg 2', () => {
+  const a = new Foo3();
+  const b = a.spawn(); // Bar3
+
+  it('species (instance of)', () => {
+    expect(b).to.be.an.instanceof(Foo3);
   });
 });

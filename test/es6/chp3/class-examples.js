@@ -76,3 +76,19 @@ export class MyCoolArray extends Array {
     return this[this.length - 1];
   }
 }
+
+export class Foo3 {
+  static get [Symbol.species]() {
+    return this; // defer `species` to derived constructor
+  }
+
+  spawn() {
+    return new this.constructor[Symbol.species]();
+  }
+}
+
+export class Bar3 extends Foo3 {
+  static get [Symbol.species]() {
+    return Foo3; // force `species` to be parent constructor
+  }
+}
