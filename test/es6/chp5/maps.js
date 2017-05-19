@@ -60,5 +60,11 @@ describe('maps', () => {
 
     console.log(vals);
     console.log(Array.from( m.values() ));
+
+    var keys = [ ...m.keys() ];
+
+    console.log(keys);
+
+    console.log(m.has( y ));
   });
 });
