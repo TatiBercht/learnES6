@@ -8,6 +8,7 @@
     "test": "mocha './test/{,!(node_modules)/**/}*.js'",
     "intro": "mocha './test/intro/{,!(node_modules)/**/}*.js'",
     "es6": "mocha './test/es6/{,!(node_modules)/**/}*.js'",
+    "func": "mocha './test/functional/{,!(node_modules)/**/}*.js'",
     "postinstall": "npm run hooks"
   },
   "devDependencies": {
